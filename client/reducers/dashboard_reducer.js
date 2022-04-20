@@ -8,13 +8,14 @@ const initialState = {
 const dashboardReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.QUERYDATA: {
+
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(textValue)
             }
-                const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
-                const data =  await response.json()
+                const  response =  await fetch('http://localhost:8080/findUsers', requestOptions)
+                const  data =  await response.json()
                 
           return {
             ...state,

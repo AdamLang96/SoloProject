@@ -8,7 +8,6 @@
 // * ************************************
 // */
 
-import thisBooleanValue from 'es-abstract/2015/thisBooleanValue';
 import React, { Component } from 'react';
 import {Button, InputGroup,  FloatingLabel, Form, Container, Row, Col } from 'react-bootstrap'
 
@@ -43,9 +42,11 @@ import {Button, InputGroup,  FloatingLabel, Form, Container, Row, Col } from 're
     }; 
 
     const handleChangeJoint= (event) => {
+      textValue["joint"] = event.target.value
     }; 
 
     const handleChangeExerName= (event) => {
+      textValue["exercise"] = event.target.value
     }; 
 
 

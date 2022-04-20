@@ -9,23 +9,18 @@
 // */
 
 import React, { Component } from 'react';
-import {Button, InputGroup, FormControl } from 'react-bootstrap'
+// import {Button, InputGroup, FormControl } from 'react-bootstrap'
 import '/client/styles.css'
- class Hotels extends Component {
+ class WorkoutCard extends Component {
   
    render() {
      return(
-        <InputGroup className="mb-3">
-    <FormControl
-      placeholder= {"Hotel API"}
-    />
-    <Button variant="outline-secondary" id="button-addon2">
-      Send Request
-    </Button>
-  </InputGroup>
+       <div>
+         <h1>WORKOUT SCHEDULE</h1>
+       </div>
      );
    }
  
  }
 
-export default Hotels
+export default WorkoutCard
