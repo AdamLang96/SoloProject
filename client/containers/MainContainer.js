@@ -11,8 +11,8 @@
 
  import React, { Component } from 'react';
  import Hotels from '/client/components/HotelsComponent.js'
- import Maps from '/client/components/MapComponent.js'
- import Restaurants from '/client/components/RestaurantsComponent.js'
+ import Update from '/client/components/UpdateComponent.js'
+ import Query from '/client/components/QueryComponent.js'
 
  import '/client/styles.css'
   class MainContainer extends Component {
@@ -23,7 +23,8 @@
     render() {
       return(
           <div>
-       <Maps></Maps>
+       <Update></Update>
+       {/* <Query></Query> */}
        </div>
       );
     }
