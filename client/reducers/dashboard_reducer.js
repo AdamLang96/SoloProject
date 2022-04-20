@@ -8,15 +8,17 @@ const initialState = {
 const dashboardReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.QUERYDATA: {
-
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(textValue)
             }
-                const  response =  await fetch('http://localhost:8080/findUsers', requestOptions)
-                const  data =  await response.json()
-                
+            async function fetchMovies() {
+                const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
+                const data =  await response.json()
+                return data
+            }
+            data = fetchMovies()
           return {
             ...state,
             queriedExc: [data]
@@ -33,6 +35,10 @@ const dashboardReducer = (state = initialState, action) => {
                workoutSchedule: newSchedule
            }
        }
+
+       default: {
+        return state;
+      }
     }
 }
 

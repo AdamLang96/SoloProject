@@ -54,7 +54,6 @@ import {Button, FloatingLabel, Form } from 'react-bootstrap'
         }
             const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
             const data =  await response.json()
-            console.log(data)
       }
     
       
