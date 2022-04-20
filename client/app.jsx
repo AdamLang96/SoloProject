@@ -10,7 +10,8 @@
  */
 
  import React, { Component } from 'react';
- 
+ import Container from '/client/containers/MainContainer.js'
+
  class App extends Component {
    constructor(props) {
      super(props);
@@ -20,7 +21,8 @@
    render() {
      return(
        <div>
-         <h1>ReactTest</h1>
+         <Container>
+         </Container>
        </div>
      );
    }

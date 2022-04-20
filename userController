@@ -1,12 +1,23 @@
-const User = require('./userModel');
+const Workout = require('./userModel');
 
 
-const userController = {};
+const workoutController = {};
 
 
-userController.createUser = async (req, res, next) => {
+workoutController.createUser = async (req, res, next) => {
   try {
-      await User.create({first: req.body.first, last:req.body.last}, (err, doc)=> {
+      await Workout.create(
+        {
+        
+        muscGroup: req.body.muscGroup,
+        exercise:  req.body.exercise,
+        level:     req.body.level,
+        u_l_c:     req.body.u_l_c,
+        push_pull: req.body.push_pull, 
+        modality:  req.body.modality,
+        joint:     req.body.joint
+      
+      }, (err, doc)=> {
         res.locals.status = 'success'
         console.log('thisworks')
         next()
@@ -19,4 +30,4 @@ userController.createUser = async (req, res, next) => {
 
 
 
-module.exports = userController
+module.exports = workoutController

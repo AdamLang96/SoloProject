@@ -2,9 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const userSchema = new Schema({
-  first: {type: String, required: true},
-  last: {type: String, required: true}
+const workoutSchema = new Schema({
+  muscGroup: {type: String, required: true},
+  exercise: {type: String, required: true},
+  level: {type: String},
+  u_l_c: {type: String},
+  push_pull: {type: String}, 
+  modality: {type: String},
+  joint: {type: String}
+
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Workout', workoutSchema);

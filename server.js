@@ -14,7 +14,6 @@ mongoose.connect('mongodb://localhost:27017/SoloProject')
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
-
 app.post("/", controller.createUser, (req, res) => {
   res.status(200).send(req.body)
 })
