@@ -1,14 +1,15 @@
+const { compareDocumentPosition } = require('domutils');
+const { dotCase } = require('dot-case');
 const Workout = require('./userModel');
 
 
 const workoutController = {};
 
 
-workoutController.createUser = async (req, res, next) => {
+workoutController.createUser =  (req, res, next) => {
   try {
-      await Workout.create(
+       Workout.create(
         {
-        
         muscGroup: req.body.muscGroup,
         exercise:  req.body.exercise,
         level:     req.body.level,
@@ -16,7 +17,6 @@ workoutController.createUser = async (req, res, next) => {
         push_pull: req.body.push_pull, 
         modality:  req.body.modality,
         joint:     req.body.joint
-      
       }, (err, doc)=> {
         res.locals.status = 'success'
         console.log('thisworks')
@@ -27,6 +27,23 @@ workoutController.createUser = async (req, res, next) => {
     next(e)
   }
 };
+
+workoutController.findUser =  (req, res, next) => {
+
+  try {
+     Workout.find(req.body, (err, docs) => {
+      //  console.log(docs)
+      console.log('middleware for find')
+      console.log('these docs', docs)
+       res.locals = docs
+      next()
+    })
+
+  } catch(e) {
+    console.log('error', e)
+    next(e)
+  }
+}
 
 
 

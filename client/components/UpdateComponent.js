@@ -10,9 +10,9 @@
 
 import thisBooleanValue from 'es-abstract/2015/thisBooleanValue';
 import React, { Component } from 'react';
-import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
+import {Button, InputGroup,  FloatingLabel, Form, Container, Row, Col } from 'react-bootstrap'
 
- class Maps extends Component {
+ class Update extends Component {
    render() {
     let textValue = {}
      
@@ -20,39 +20,32 @@ import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
     
     const handleChangeMusc = (event) => {
         textValue['muscGroup'] = event.target.value
-        console.log(textValue)
       }; 
 
       const handleChangeDiff = (event) => {
         textValue['level'] = event.target.value
-        console.log(textValue)
 
     }; 
 
     const handleChangeSplit= (event) => {
         textValue['u_l_c'] = event.target.value
-        console.log(textValue)
 
     }; 
 
     const handleChangePush = (event) => {
         textValue['push_pull'] = event.target.value
-        console.log(textValue)
 
     }; 
 
     const handleChangeEquip = (event) => {
         textValue['modality'] = event.target.value
-        console.log(textValue)
 
     }; 
 
     const handleChangeJoint= (event) => {
-        textValue['joint'] = event.target.value
     }; 
 
     const handleChangeExerName= (event) => {
-        textValue['exercise'] = event.target.value
     }; 
 
 
@@ -63,12 +56,12 @@ import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
             body: JSON.stringify(textValue)
         }
             await fetch('http://localhost:8080/', requestOptions)
+             
       }
     
       
      return(
-         <div>
-          
+        <div>
         <Form.Control type="input" placeholder="Exercise Name" onChange = {handleChangeExerName}/>
         <FloatingLabel controlId="floatingSelect">
         <Form.Label>Muscle Group                  </Form.Label>
@@ -109,7 +102,7 @@ import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
   <option value="Lower">Lower</option>
  </Form.Select>
  </FloatingLabel>
-
+ 
  <FloatingLabel controlId="floatingSelect">
  <Form.Label>Push/Pull  </Form.Label>
  <Form.Select aria-label="u_l_c" onChange = {handleChangePush}>
@@ -140,12 +133,9 @@ import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
  <Button variant="primary" onClick = {handleClick}>Submit</Button>
  </div>
 
-
-
-
      );
    }
  
  }
 
-export default Maps
+export default Update

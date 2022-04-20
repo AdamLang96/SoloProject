@@ -9,40 +9,33 @@
 // */
 
 import React, { Component } from 'react';
-import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
+import {Button, FloatingLabel, Form } from 'react-bootstrap'
 
  class Query extends Component {
    render() {
     let textValue = {}
      
-    
-    
     const handleChangeMusc = (event) => {
         textValue['muscGroup'] = event.target.value
-        console.log(textValue)
       }; 
 
       const handleChangeDiff = (event) => {
         textValue['level'] = event.target.value
-        console.log(textValue)
 
     }; 
 
     const handleChangeSplit= (event) => {
         textValue['u_l_c'] = event.target.value
-        console.log(textValue)
 
     }; 
 
     const handleChangePush = (event) => {
         textValue['push_pull'] = event.target.value
-        console.log(textValue)
 
     }; 
 
     const handleChangeEquip = (event) => {
         textValue['modality'] = event.target.value
-        console.log(textValue)
 
     }; 
 
@@ -50,9 +43,7 @@ import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
         textValue['joint'] = event.target.value
     }; 
 
-    const handleChangeExerName= (event) => {
-        textValue['exercise'] = event.target.value
-    }; 
+  
 
 
       async function handleClick() {
@@ -61,7 +52,9 @@ import {Button, InputGroup,  FloatingLabel, Form } from 'react-bootstrap'
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(textValue)
         }
-            await fetch('http://localhost:8080/', requestOptions)
+            const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
+            const data =  await response.json()
+            console.log(data)
       }
     
       

@@ -23,8 +23,14 @@
     render() {
       return(
           <div>
+          <div>
+              <h1>ADD WORKOUTS</h1>
        <Update></Update>
-       {/* <Query></Query> */}
+      </div>
+      <div>
+          <h1>FIND EXERCISES</h1>
+       <Query></Query>
+       </div>
        </div>
       );
     }

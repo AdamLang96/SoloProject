@@ -15,8 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
 app.post("/", controller.createUser, (req, res) => {
-  res.status(200).send(req.body)
+  res.status(200).send(res.locals)
 })
+
+app.post("/findUsers", controller.findUser, (req, res) => {
+  res.status(200).send(res.locals)
+})
+
 
 app.listen(port, () => {
   console.log(`Server running ${port}`)
