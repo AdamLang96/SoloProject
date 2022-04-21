@@ -19,7 +19,6 @@ workoutController.createUser =  (req, res, next) => {
         joint:     req.body.joint
       }, (err, doc)=> {
         res.locals.status = 'success'
-        console.log('thisworks')
         next()
       });
   } catch(e) {
@@ -32,9 +31,7 @@ workoutController.findUser =  (req, res, next) => {
 
   try {
      Workout.find(req.body, (err, docs) => {
-      //  console.log(docs)
-      console.log('middleware for find')
-      console.log('these docs', docs)
+      //  console.log("middleware query", docs)
        res.locals = docs
       next()
     })

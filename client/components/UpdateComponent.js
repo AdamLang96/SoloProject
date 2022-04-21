@@ -11,8 +11,7 @@
 import React, { Component } from 'react';
 import {Button, InputGroup,  FloatingLabel, Form, Container, Row, Col } from 'react-bootstrap'
 
- class Update extends Component {
-   render() {
+ const Update = (props) => {
     let textValue = {}
      
     
@@ -131,12 +130,13 @@ import {Button, InputGroup,  FloatingLabel, Form, Container, Row, Col } from 're
  </Form.Select>
  </FloatingLabel>
 
- <Button variant="primary" onClick = {handleClick}>Submit</Button>
+ <Button variant="primary" 
+ onClick = {handleClick}
+ >Submit</Button>
  </div>
 
      );
    }
  
- }
 
 export default Update

@@ -5,23 +5,46 @@ const initialState = {
     workoutSchedule: []
 };
 
-const dashboardReducer = (state = initialState, action) => {
+const  dashboardReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.QUERYDATA: {
-            const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(textValue)
-            }
-            async function fetchMovies() {
-                const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
-                const data =  await response.json()
-                return data
-            }
-            data = fetchMovies()
+
+            // const requestOptions = {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(action.payload)
+            // }
+
+            // fetch('http://localhost:8080/findUsers', requestOptions)
+            // .then((res) => {
+            //     console.log('fetch response',res)
+            //     return res.json()
+            // })
+            // .then (data =>{
+            //     const queriedExc = data;
+            //     return{
+            //         ...state,
+            //         queriedExc
+            //     }
+            // })
+
+            // async function fetchWorkouts() {
+            //     const  response =  await fetch('http://localhost:8080/findUsers', requestOptions)
+            //     const  data     =  await response.json()
+            //     console.log('inside async', data)
+            //     return data
+            // }
+
+            // fetchWorkouts().then((response) => {
+            //     const queriedExc =  response
+            //     return{
+            //         ...state,
+            //         queriedExc
+            //     }})
+                
           return {
             ...state,
-            queriedExc: [data]
+            queriedExc: action.payload
           };  
        }
 

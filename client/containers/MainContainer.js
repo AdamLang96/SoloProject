@@ -18,25 +18,28 @@
  import '/client/styles.css'
  import { connect } from 'react-redux';
 
-
  const mapStateToProps = state => ({
-    // add pertinent state here
     workoutSchedule: state.dash.workoutSchedule,
     queriedExc: state.dash.queriedExc
-     
   });
 
   const mapDispatchToProps = dispatch => ({
-    addWorkout: (workout) => dispatch(actions.addWorkoutActionCreator(workout)),
-    queryData: () =>  dispatch(actions.queryDataActionCreator())
+    addWorkout: (workout)       => dispatch(actions.addWorkoutActionCreator(workout)),
+    queryData: (params)         =>  dispatch(actions.runQueryActionCreator(params))
   });
+
+
 
   class MainContainer extends Component {
     constructor(props) {
       super(props);
-    }
-  
+        }
+    
     render() {
+        console.log("main container state1", this.props.workoutSchedule)
+        console.log("main container state2", this.props.queriedExc)
+        console.log("main container dis1", this.props.addWorkout)
+        console.log("main container dis2", this.props.queryData)
       return(
           <div>
           <div>
@@ -57,6 +60,7 @@
        <div>
            <QueriedAll
             addWorkout = {this.props.addWorkout}
+            queriedExc = {this.props.queriedExc}
            ></QueriedAll>
        </div>
        </div>

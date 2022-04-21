@@ -8,11 +8,11 @@
 // * ************************************
 // */
 
-import React, { Component } from 'react';
+import React from 'react';
 import {Button, FloatingLabel, Form } from 'react-bootstrap'
 
- class Query extends Component {
-   render() {
+  const Query = props => {
+
     let textValue = {}
      
     const handleChangeMusc = (event) => {
@@ -43,24 +43,24 @@ import {Button, FloatingLabel, Form } from 'react-bootstrap'
         textValue['joint'] = event.target.value
     }; 
 
-  
+     const handleClick = () => {
+       props.queryData(textValue)
+     }
 
 
-      async function handleClick() {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(textValue)
-        }
-            const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
-            const data =  await response.json()
-      }
+      // async function handleClick() {
+      //   const requestOptions = {
+      //       method: 'POST',
+      //       headers: { 'Content-Type': 'application/json' },
+      //       body: JSON.stringify(textValue)
+      //   }
+      //       const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
+      //       const data =  await response.json()
+      // }
     
       
      return(
          <div>
-
-          
         <FloatingLabel controlId="floatingSelect">
         <Form.Label>Muscle Group                  </Form.Label>
         <Form.Select aria-label="Muscle Group" onChange = {handleChangeMusc}>
@@ -128,7 +128,9 @@ import {Button, FloatingLabel, Form } from 'react-bootstrap'
  </Form.Select>
  </FloatingLabel>
 
- <Button variant="primary" onClick = {handleClick}>Submit</Button>
+ <Button variant="primary" 
+ onClick = {handleClick}
+ >Submit</Button>
  </div>
 
 
@@ -137,6 +139,5 @@ import {Button, FloatingLabel, Form } from 'react-bootstrap'
      );
    }
  
- }
 
 export default Query
