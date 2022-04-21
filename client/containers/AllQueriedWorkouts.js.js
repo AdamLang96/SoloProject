@@ -6,13 +6,17 @@ import '/client/styles.css'
 
  const AllQueriedWorkouts =  (props) => {
     const arraydiv = [];
-    console.log("props made it", props.queriedExc)
     let subprop
     for(let i = 0; i< props.queriedExc.length; i++) {
     subprop = props.queriedExc[i]
     arraydiv.push(<ExerciseCard
                    exercise = {subprop.exercise}
                    muscGroup = {subprop.muscGroup}
+                   totalReps = {subprop.totalReps}
+                   totalSets = {subprop.totalSets}
+                   addReps = {props.addReps}
+                   addSets = {props.addSets}
+                   cardID = {subprop.ID}
                   />)
     }
      return(

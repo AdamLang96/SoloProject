@@ -20,3 +20,20 @@
       "main main . sidebar"
       "footer footer footer footer";
   }
+
+  .marketBox {
+    padding: 5px;
+    width:30%;
+    margin: 5px 5px 13px 10px;
+    float:left;
+    font-size: .8em;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
+}
+
+.outerBox {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 10px 15px 39px rgba(0, 0, 0, .2);
+  border-radius: 5px;
+}

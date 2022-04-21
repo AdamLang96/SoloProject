@@ -48,19 +48,11 @@ import {Button, FloatingLabel, Form } from 'react-bootstrap'
      }
 
 
-      // async function handleClick() {
-      //   const requestOptions = {
-      //       method: 'POST',
-      //       headers: { 'Content-Type': 'application/json' },
-      //       body: JSON.stringify(textValue)
-      //   }
-      //       const response =  await fetch('http://localhost:8080/findUsers', requestOptions)
-      //       const data =  await response.json()
-      // }
     
       
      return(
-         <div>
+         <div className = "outerBox" >
+           <h1>Search for Exercises</h1>
         <FloatingLabel controlId="floatingSelect">
         <Form.Label>Muscle Group                  </Form.Label>
         <Form.Select aria-label="Muscle Group" onChange = {handleChangeMusc}>

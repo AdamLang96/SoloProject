@@ -41,5 +41,15 @@ export const addWorkoutActionCreator = workout => ({
   payload: workout
 });
 
+export const addRepsActionCreator = ID => ({
+  type: types.ADDREPS,
+  payload: ID
+});
+
+export const addSetsActionCreator = ID => ({
+  type: types.ADDSETS,
+  payload: ID
+});
+
 
 

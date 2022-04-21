@@ -24,8 +24,10 @@
   });
 
   const mapDispatchToProps = dispatch => ({
-    addWorkout: (workout)       => dispatch(actions.addWorkoutActionCreator(workout)),
-    queryData: (params)         =>  dispatch(actions.runQueryActionCreator(params))
+    addWorkout: (ID)       => dispatch(actions.addWorkoutActionCreator(ID)),
+    queryData: (params)         =>  dispatch(actions.runQueryActionCreator(params)),
+    addReps: (ID)               => dispatch(actions.addRepsActionCreator(ID)),
+    addSets: (ID)               => dispatch(actions.addSetsActionCreator(ID))
   });
 
 
@@ -36,18 +38,12 @@
         }
     
     render() {
-        console.log("main container state1", this.props.workoutSchedule)
-        console.log("main container state2", this.props.queriedExc)
-        console.log("main container dis1", this.props.addWorkout)
-        console.log("main container dis2", this.props.queryData)
       return(
           <div>
           <div>
-              <h1>ADD WORKOUTS</h1>
        <Update></Update>
       </div>
       <div>
-          <h1>FIND EXERCISES</h1>
        <Query
        queryData = {this.props.queryData}
        ></Query>
@@ -61,6 +57,8 @@
            <QueriedAll
             addWorkout = {this.props.addWorkout}
             queriedExc = {this.props.queriedExc}
+            addReps = {this.props.addReps}
+            addSets = {this.props.addSets}
            ></QueriedAll>
        </div>
        </div>

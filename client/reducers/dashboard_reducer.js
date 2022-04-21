@@ -2,62 +2,75 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
     queriedExc: [], 
-    workoutSchedule: []
+    workoutSchedule: [],
+    totalIDs: 0
+
 };
 
 const  dashboardReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.QUERYDATA: {
-
-            // const requestOptions = {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(action.payload)
-            // }
-
-            // fetch('http://localhost:8080/findUsers', requestOptions)
-            // .then((res) => {
-            //     console.log('fetch response',res)
-            //     return res.json()
-            // })
-            // .then (data =>{
-            //     const queriedExc = data;
-            //     return{
-            //         ...state,
-            //         queriedExc
-            //     }
-            // })
-
-            // async function fetchWorkouts() {
-            //     const  response =  await fetch('http://localhost:8080/findUsers', requestOptions)
-            //     const  data     =  await response.json()
-            //     console.log('inside async', data)
-            //     return data
-            // }
-
-            // fetchWorkouts().then((response) => {
-            //     const queriedExc =  response
-            //     return{
-            //         ...state,
-            //         queriedExc
-            //     }})
-                
+            const queriedResult = action.payload
+            for(let i = 0; i < queriedResult.length; i++) {
+               queriedResult[i].totalReps = 0
+               queriedResult[i].totalSets = 0
+               queriedResult[i].ID = state.totalIDs
+              state.totalIDs++
+            }
+            
           return {
             ...state,
-            queriedExc: action.payload
+            queriedExc: queriedResult
           };  
        }
 
        case types.ADDTOWORKOUTLIST: {
-           const newWorkout = action.payload
-           const newSchedule = state.workoutSchedule.slice()
-           newSchedule.push(newWorkout)
-
-           return {
-               ...state,
-               workoutSchedule: newSchedule
-           }
+        let newList = state.queriedExc
+        let newWorkoutSchedule = state.workoutSchedule.slice()
+        for(let i = 0; i < newList.length; i++) {
+         if(newList[i].ID === action.payload) {
+            newWorkoutSchedule.push(newList[i])
+           break;
+         }
+     } 
+         return {
+             ...state,
+             workoutSchedule: newWorkoutSchedule
+           };
        }
+
+       case types.ADDREPS: {
+           let newList = state.queriedExc.slice()
+           for(let i = 0; i < newList.length; i++) {
+            if(newList[i].ID === action.payload) {
+              newList[i].totalReps++;
+              break;
+            }
+        } 
+            return {
+                ...state,
+                queriedExc: newList
+              };
+
+       
+               
+        }
+    
+      case types.ADDSETS: {
+        let newList = state.queriedExc.slice()
+        for(let i = 0; i < newList.length; i++) {
+         if(newList[i].ID === action.payload) {
+           newList[i].totalSets++;
+           break;
+         }
+     } 
+         return {
+             ...state,
+             queriedExc: newList
+           };
+          
+
+      }
 
        default: {
         return state;

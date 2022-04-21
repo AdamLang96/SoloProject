@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 // import {Button, InputGroup, FormControl } from 'react-bootstrap'
 import '/client/styles.css'
  const ExerciseCard = (props) => {
-  
      return(
-       <div>
+       <div className = "marketBox">
           <div>
               <b>
               Exercise:
@@ -21,6 +21,8 @@ import '/client/styles.css'
               <text> 
                {props.muscGroup}
               </text>
+              <div>
+              </div>
             </div>
         </div>
 
