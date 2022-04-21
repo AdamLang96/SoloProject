@@ -22,7 +22,20 @@ const  dashboardReducer = (state = initialState, action) => {
             ...state,
             queriedExc: queriedResult
           };  
-       }
+       
+       
+        }
+       
+      case types.QUERYWORKOUTS: {
+       const queriedResult = action.payload[0].schedule
+       return {
+        ...state,
+        workoutSchedule: queriedResult
+      };  
+   }
+
+
+
 
        case types.ADDTOWORKOUTLIST: {
         let newList = state.queriedExc

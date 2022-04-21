@@ -12,28 +12,56 @@
   }
   
   .container {
-    display: grid;
-    grid-template-columns: 50px 50px 50px 50px;
-    grid-template-rows: auto;
+    display: inline-grid;
+    grid-template-columns: 190px 250px ;
+    grid-template-rows: 350px 350px ;
     grid-template-areas: 
-      "header header header header"
-      "main main . sidebar"
-      "footer footer footer footer";
+      "top1 top2"
+      "bot1 bot2";
+
+    column-gap: 300px;
   }
 
   .marketBox {
-    padding: 5px;
-    width:30%;
-    margin: 5px 5px 13px 10px;
-    float:left;
-    font-size: .8em;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
+    width: 200%;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
 }
 
-.outerBox {
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 10px;
-  box-shadow: 10px 15px 39px rgba(0, 0, 0, .2);
-  border-radius: 5px;
+.marketBoxQueried {
+  box-sizing: border-box;
+  width: 100%;
+  border: 5px solid gray;
+  padding: 5px;
+}
+
+.containerWorkouts {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px ;
+  grid-template-rows: auto ;
+  column-gap: 10px;
+  row-gap: 10px;
+
+}
+
+.titleWidthWorkouts {
+  width: 180%;
+}
+
+.containerSchedule {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: auto ;
+  column-gap: 140px;
+  row-gap: 10px;
+}
+
+.title {
+  text-align: center;
+}
+
+.alignAll {
+  display: flex;
+  justify-content: space-around;
 }

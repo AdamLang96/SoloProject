@@ -10,7 +10,7 @@
  */
 
  import React, { Component } from 'react';
- import Workout from '/client/components/WorkoutScheduleComponent.js'
+ import WorkoutSchedule from '/client/containers/WorkoutScheduleContainer.js'
  import Update from '/client/components/UpdateComponent.js'
  import Query from '/client/components/QueryComponent.js'
  import QueriedAll from '/client/containers/AllQueriedWorkouts.js'
@@ -24,10 +24,11 @@
   });
 
   const mapDispatchToProps = dispatch => ({
-    addWorkout: (ID)       => dispatch(actions.addWorkoutActionCreator(ID)),
+    addWorkout: (ID)            => dispatch(actions.addWorkoutActionCreator(ID)),
     queryData: (params)         =>  dispatch(actions.runQueryActionCreator(params)),
     addReps: (ID)               => dispatch(actions.addRepsActionCreator(ID)),
-    addSets: (ID)               => dispatch(actions.addSetsActionCreator(ID))
+    addSets: (ID)               => dispatch(actions.addSetsActionCreator(ID)),
+    queryWorkouts: (params)     => dispatch(actions.queryWorkoutsActionDispatch(params))
   });
 
 
@@ -39,7 +40,10 @@
     
     render() {
       return(
-          <div>
+        <div>
+    <h1 className = "alignAll">Workout Planner</h1>
+        <div className =  "alignAll">
+          <div className = "container">
           <div>
        <Update></Update>
       </div>
@@ -49,17 +53,22 @@
        ></Query>
        </div>
        <div>
-           <Workout
-           workoutSched = {this.props.workoutSchedule}
-           ></Workout>
+
+           <WorkoutSchedule
+            workoutSched = {this.props.workoutSchedule}
+            addReps = {this.props.addReps}
+            addSets = {this.props.addSets}
+            queryWorkouts = {this.props.queryWorkouts}
+           ></WorkoutSchedule>
+
        </div>
        <div>
            <QueriedAll
             addWorkout = {this.props.addWorkout}
             queriedExc = {this.props.queriedExc}
-            addReps = {this.props.addReps}
-            addSets = {this.props.addSets}
            ></QueriedAll>
+       </div>
+       </div>
        </div>
        </div>
       );

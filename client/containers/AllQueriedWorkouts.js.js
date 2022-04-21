@@ -17,12 +17,16 @@ import '/client/styles.css'
                    addReps = {props.addReps}
                    addSets = {props.addSets}
                    cardID = {subprop.ID}
+                   addWorkout = {props.addWorkout}
+                   workoutSched = {props.workoutSched}
                   />)
     }
      return(
-       <div>
-         <h1>BOX OF QUERIED WORKOUTS</h1>
+       <div className = "titleWidthWorkouts ">
+         <h1>All Available Workouts</h1>
+       <div className = "containerWorkouts">
          {arraydiv}
+       </div>
        </div>
      );
    }

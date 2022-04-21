@@ -3,8 +3,11 @@ import { Button } from 'react-bootstrap';
 // import {Button, InputGroup, FormControl } from 'react-bootstrap'
 import '/client/styles.css'
  const ExerciseCard = (props) => {
+     const handleClick = () => {
+         props.addWorkout(props.cardID)
+     }
      return(
-       <div className = "marketBox">
+       <div className = "marketBoxQueried">
           <div>
               <b>
               Exercise:
@@ -22,6 +25,7 @@ import '/client/styles.css'
                {props.muscGroup}
               </text>
               <div>
+                  <button onClick = {handleClick}>Add to Workout Schedule</button>
               </div>
             </div>
         </div>

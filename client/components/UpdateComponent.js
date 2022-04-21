@@ -62,7 +62,7 @@ import {Button, InputGroup,  FloatingLabel, Form, Container, Row, Col } from 're
       
      return(
         <div className = "marketBox">
-          <h1> Add Workout</h1>
+          <h1> Add Exercise </h1>
         <Form.Control type="input" placeholder="Exercise Name" onChange = {handleChangeExerName}/>
         <FloatingLabel controlId="floatingSelect">
         <Form.Label>Muscle Group                  </Form.Label>

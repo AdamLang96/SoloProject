@@ -51,7 +51,7 @@ import {Button, FloatingLabel, Form } from 'react-bootstrap'
     
       
      return(
-         <div className = "outerBox" >
+         <div className = "marketBox" >
            <h1>Search for Exercises</h1>
         <FloatingLabel controlId="floatingSelect">
         <Form.Label>Muscle Group                  </Form.Label>

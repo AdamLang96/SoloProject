@@ -14,7 +14,6 @@ import * as types from '../constants/actionTypes.js';
 
 
 export const runQueryActionCreator = params => {
-  console.log("myparametersforsearch", params)
   return dispatch => {
     async function fetchWorkouts(params) {
                 const  response =  await fetch('http://localhost:8080/findUsers', 
@@ -31,8 +30,36 @@ export const runQueryActionCreator = params => {
   }   
 }
 
+
+export const queryWorkoutsActionDispatch = params => {
+  return dispatch => {
+    async function fetchWorkouts(params) {
+                const  response =  await fetch('http://localhost:8080/findSchedule', 
+                  {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(params)
+                  }
+                  )
+                const  data  =  await response.json()
+                console.log(data)
+                dispatch(queryWorkoutsActionCreator(data))
+            }
+      fetchWorkouts(params)
+  }   
+}
+
+
+
+
+
 export const queryDataActionCreator = queryResults => ({
   type: types.QUERYDATA, 
+  payload: queryResults
+});
+
+export const queryWorkoutsActionCreator = queryResults => ({
+  type: types.QUERYWORKOUTS, 
   payload: queryResults
 });
 
@@ -50,6 +77,7 @@ export const addSetsActionCreator = ID => ({
   type: types.ADDSETS,
   payload: ID
 });
+
 
 
 

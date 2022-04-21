@@ -3,7 +3,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 const mongoose = require('mongoose')
-const controller = require('/Users/adamgabriellang/JSDeveloper/solo-project/userController')
+const workoutController = require('/Users/adamgabriellang/JSDeveloper/solo-project/userController')
+const scheduleController = require('./ScheduleController.js')
 mongoose.connect('mongodb://localhost:27017/SoloProject')
 
 // app.get('/', (req, res) => {
@@ -14,14 +15,22 @@ mongoose.connect('mongodb://localhost:27017/SoloProject')
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
-app.post("/", controller.createUser, (req, res) => {
+app.post("/", workoutController.createUser, (req, res) => {
   res.status(200).send(res.locals)
 })
 
-app.post("/findUsers", controller.findUser, (req, res) => {
+app.post("/findUsers", workoutController.findUser, (req, res) => {
   res.status(200).send(res.locals)
 })
 
+
+app.post("/createSchedule", scheduleController.createSchedule, (req, res) => {
+  res.status(200).send(res.locals)
+})
+
+app.post("/findSchedule", scheduleController.findSchedule, (req, res) => {
+  res.status(200).send(res.locals)
+})
 
 app.listen(port, () => {
   console.log(`Server running ${port}`)

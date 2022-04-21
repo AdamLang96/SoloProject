@@ -1,5 +1,3 @@
-const { compareDocumentPosition } = require('domutils');
-const { dotCase } = require('dot-case');
 const Workout = require('./userModel');
 
 
